@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variables & Constants | My Dev Notes</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="../index.html" class="brand">
+    <span class="mark">&#9729;</span>
+    My Dev Notes
+  </a>
+  <div class="search-box">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <span>Search</span>
+    <span class="kbd"><kbd>Ctrl</kbd><kbd>K</kbd></span>
+  </div>
+  <div class="header-icons">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="backdrop" id="backdrop"></div>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="top-link" href="../index.html">Getting Started</a>
+<nav>
+<div class="nav-group">
+<div class="nav-group-title">Cup aur HTML</div>
+<ul>
+<li><a href="../cup-aur-html/welcome.html">Welcome</a></li>
+<li><a href="../cup-aur-html/introduction.html">HTML Intro</a></li>
+<li><a href="../cup-aur-html/emmit-crash-course.html">Emmet Crash Course</a></li>
+<li><a href="../cup-aur-html/html-tags.html">Common HTML Tags</a></li>
+</ul>
+</div>
+<div class="nav-group">
+<div class="nav-group-title">Cup aur Git</div>
+<ul>
+<li><a href="../cup-aur-git/welcome.html">Welcome</a></li>
+<li><a href="../cup-aur-git/introduction.html">Git and GitHub</a></li>
+<li><a href="../cup-aur-git/terminology.html">Terminology</a></li>
+<li><a href="../cup-aur-git/behind-the-scenes.html">Behind the scenes</a></li>
+<li><a href="../cup-aur-git/branches.html">Branches in Git</a></li>
+<li><a href="../cup-aur-git/diff-stash-tags.html">Diff, Stash, Tags</a></li>
+<li><a href="../cup-aur-git/managing-history.html">Managing History</a></li>
+<li><a href="../cup-aur-git/github.html">Collaborate with Github</a></li>
+</ul>
+</div>
+<div class="nav-group">
+<div class="nav-group-title">Cup aur C++</div>
+<ul>
+<li><a href="../cup-aur-c/welcome.html">Welcome</a></li>
+<li><a href="../cup-aur-c/introduction.html">C++ Intro</a></li>
+<li><a href="../cup-aur-c/hello-world.html">First Program in C++</a></li>
+<li><a href="../cup-aur-c/variables-and-constants.html" class="active">Variables & Constants</a></li>
+<li><a href="../cup-aur-c/data-types.html">Data Types</a></li>
+<li><a href="../cup-aur-c/operators.html">Operators</a></li>
+<li><a href="../cup-aur-c/control-flow.html">Control Flow</a></li>
+<li><a href="../cup-aur-c/loops.html">Loops</a></li>
+<li><a href="../cup-aur-c/functions.html">Functions</a></li>
+</ul>
+</div>
+<div class="nav-group">
+<div class="nav-group-title">Cup aur Django</div>
+<ul>
+<li><a href="../cup-aur-django/welcome.html">Welcome</a></li>
+<li><a href="../cup-aur-django/getting-started.html">Django Intro</a></li>
+<li><a href="../cup-aur-django/jinja-templates.html">Jinja Templates App</a></li>
+<li><a href="../cup-aur-django/tailwind.html">Tailwind Integration</a></li>
+<li><a href="../cup-aur-django/models.html">Models</a></li>
+<li><a href="../cup-aur-django/relationships-and-forms.html">Relationships & Forms</a></li>
+</ul>
+</div>
+<div class="nav-group">
+<div class="nav-group-title">Cup aur SQL</div>
+<ul>
+<li><a href="../cup-aur-sql/welcome.html">Welcome</a></li>
+<li><a href="../cup-aur-sql/introduction.html">SQL Intro</a></li>
+<li><a href="../cup-aur-sql/postgres.html">PostgreSQL</a></li>
+<li><a href="../cup-aur-sql/normalization.html">Database Design</a></li>
+<li><a href="../cup-aur-sql/database-design-exercise.html">Exercise - DB Design</a></li>
+<li><a href="../cup-aur-sql/joins-and-keys.html">SQL Joins and Keys</a></li>
+<li><a href="../cup-aur-sql/joins-exercise.html">Exercise - Joins</a></li>
+</ul>
+</div>
+<div class="nav-group">
+<div class="nav-group-title">Cup aur DevOps</div>
+<ul>
+<li><a href="../cup-aur-devops/welcome.html">Welcome</a></li>
+<li><a href="../cup-aur-devops/setup-vpc.html">Server Startup</a></li>
+<li><a href="../cup-aur-devops/setup-nginx.html">Nginx Configuration</a></li>
+<li><a href="../cup-aur-devops/nginx-rate-limiting.html">Nginx Rate Limit</a></li>
+<li><a href="../cup-aur-devops/nginx-ssl-setup.html">Nginx SSL Setup</a></li>
+<li><a href="../cup-aur-devops/node-nginx-vps.html">Deploy Node API</a></li>
+<li><a href="../cup-aur-devops/postgresql-docker.html">PostgreSQL & Docker</a></li>
+<li><a href="../cup-aur-devops/postgresql-vps.html">PostgreSQL on VPS</a></li>
+<li><a href="../cup-aur-devops/node-logger.html">Advance Node Logger</a></li>
+</ul>
+</div>
+</nav>
+  </aside>
+  <main class="content">
+
+<div class="badge-live"><span class="dot"></span>Cup aur C++</div>
+
+<h1 class="page-title" id="_top">Variables & Constants</h1>
+
+<p class="lede">
+Variables store values that can change, while constants store values that cannot be changed after initialization.
+</p>
+
+<h2 id="what-is-variable">What is a Variable?</h2>
+
+<p>
+A variable is a named storage location used to store a value in a C++ program.
+The value stored inside a variable can be changed during program execution.
+</p>
+
+<p>
+Think of a variable like a labeled box. The label is the variable name and the value inside the box is the data stored in that variable.
+</p>
+
+<pre><code>int age = 18;</code></pre>
+
+<table>
+<tr>
+<th>Part</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data type</td>
+</tr>
+<tr>
+<td><code>age</code></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Variable name</td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assignment operator</td>
+</tr>
+<tr>
+<td><code>18</code></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Value</td>
+</tr>
+<tr>
+<td><code>;</code></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statement terminator</td>
+</tr>
+</table>
+<h2 id="why-variables">Explaning cout :</h2>
+<p>cout is used in C++ to display output on the screen. 
+  It is part of the <code>iostream</code><br> library and is commonly used with 
+  the insertion operator <code><<</code>. You can use <code>cout</code><br> to display text, numbers,
+   variables, and the results of calculations. For example,
+   <br><code>cout << "Hello World"; </code>displays Hello World on the console, 
+   while <code>cout << age; </code>displays the value stored in the age variable. 
+   You can also combine text and variables <br>using multiple<code><< </code> operators,
+    such as <code> cout << "My age is " << age;</code>.</p>
+<h2 id="why-variables">Why Do We Need Variables?</h2>
+
+<p>
+Variables allow us to store data and use that data multiple times in a program.
+They are especially useful when the value may change during program execution.
+</p>
+
+<pre><code>int age = 18;
+cout &lt;&lt; age;
+
+age = 19;
+cout &lt;&lt; age;</code></pre>
+
+<p>
+The value of <code>age</code> changes from <code>18</code> to <code>19</code>.
+</p>
+
+<h2 id="syntax">Variable Syntax</h2>
+
+<p>The basic syntax for declaring and initializing a variable is:</p>
+
+<pre><code>dataType variableName = value;</code></pre>
+
+<p>Example:</p>
+
+<pre><code>int marks = 85;
+double cgpa = 3.84;
+char grade = 'A';</code></pre>
+
+<h2 id="declaration">Declaration</h2>
+
+<p>
+Declaration means creating a variable by specifying its data type and name.
+</p>
+
+<pre><code>int age;</code></pre>
+
+<p>
+Here, <code>age</code> is declared as an integer variable.
+</p>
+
+<h2 id="initialization">Initialization</h2>
+
+<p>
+Initialization means giving a variable its first value when it is created.
+</p>
+
+<pre><code>int age = 18;</code></pre>
+
+<p>
+The variable <code>age</code> is created and initialized with the value <code>18</code>.
+</p>
+
+<h2 id="assignment">Assignment</h2>
+
+<p>
+Assignment means giving a value to an existing variable or changing its current value.
+</p>
+
+<pre><code>int age;
+age = 18;
+age = 19;</code></pre>
+
+<p>
+The current value of <code>age</code> is now <code>19</code>.
+</p>
+
+<div class="notes-box">
+<strong>Remember:</strong>
+Declaration creates the variable, initialization gives it its first value, and assignment changes the value later.
+</div>
+
+<h2 id="data-types">Common Data Types</h2>
+
+<p>
+A data type tells C++ what kind of data a variable is intended to store.
+</p>
+
+<table>
+<tr>
+<th>Data Type</th>
+<th>Used For</th>
+<th>Example</th>
+</tr>
+
+<tr>
+<td><code>int</code></td>
+<td>Whole numbers</td>
+<td><code>int age = 18;</code></td>
+</tr>
+
+<tr>
+<td><code>float</code></td>
+<td>Decimal numbers</td>
+<td><code>float price = 10.5f;</code></td>
+</tr>
+
+<tr>
+<td><code>double</code></td>
+<td>Decimal numbers with higher precision</td>
+<td><code>double pi = 3.14159;</code></td>
+</tr>
+
+<tr>
+<td><code>char</code></td>
+<td>Single character</td>
+<td><code>char grade = 'A';</code></td>
+</tr>
+
+<tr>
+<td><code>bool</code></td>
+<td>True or false</td>
+<td><code>bool passed = true;</code></td>
+</tr>
+
+<tr>
+<td><code>string</code></td>
+<td>Text</td>
+<td><code>string name = "Ali";</code></td>
+</tr>
+</table>
+
+<h2 id="naming-rules">Variable Naming Rules</h2>
+
+<p>C++ variable names must follow certain rules.</p>
+
+<h3>1. Cannot start with a number</h3>
+
+<pre><code>int age2 = 18;     // Correct
+int 2age = 18;     // Incorrect</code></pre>
+
+<h3>2. Spaces are not allowed</h3>
+
+<pre><code>int studentAge = 18;     // Correct
+int student age = 18;    // Incorrect</code></pre>
+
+<h3>3. Use meaningful names</h3>
+
+<pre><code>int studentAge = 18;
+double accountBalance = 5000.50;
+int totalMarks = 450;</code></pre>
+
+<p>
+Meaningful variable names make your code easier to read and understand.
+</p>
+
+<h3>4. C++ keywords cannot be used as variable names</h3>
+
+<pre><code>int class = 10;     // Incorrect
+int return = 20;    // Incorrect
+int int = 30;       // Incorrect</code></pre>
+
+<h3>5. C++ is case-sensitive</h3>
+
+<pre><code>int age = 18;
+int Age = 20;</code></pre>
+
+<p>
+<code>age</code> and <code>Age</code> are two different identifiers.
+</p>
+
+<h2 id="changing-values">Changing Variable Values</h2>
+
+<p>
+A variable's value can be changed during program execution.
+</p>
+
+<pre><code>int score = 50;
+
+score = 75;
+score = 100;
+
+cout &lt;&lt; score;</code></pre>
+
+<p>Output:</p>
+
+<pre><code>100</code></pre>
+
+<p>
+The current value is the most recently assigned value.
+</p>
+
+<h2 id="constants">Constants</h2>
+
+<p>
+A constant is a value that cannot be modified after initialization.
+In C++, the <code>const</code> keyword is used to create a constant.
+</p>
+
+<pre><code>const double PI = 3.14159;</code></pre>
+
+<p>
+After initialization, the value cannot be changed.
+</p>
+
+<pre><code>const int DAYS_IN_WEEK = 7;
+DAYS_IN_WEEK = 8; // Error</code></pre>
+
+<h2 id="why-constants">Why Use Constants?</h2>
+
+<p>
+Constants are useful for values that should remain fixed throughout the program.
+</p>
+
+<pre><code>const double PI = 3.14159;
+const int DAYS_IN_WEEK = 7;
+const int MAX_MARKS = 100;</code></pre>
+
+<p>
+Using constants makes your code easier to understand and helps prevent accidental changes to fixed values.
+</p>
+
+<h2 id="variable-vs-constant">Variable vs Constant</h2>
+
+<table>
+<tr>
+<th>Variable</th>
+<th>Constant</th>
+</tr>
+
+<tr>
+<td>Value can be changed</td>
+<td>  Value cannot be changed</td>
+</tr>
+
+<tr>
+<td>No <code>const</code> keyword required</td>
+<td>  Uses the <code>const</code> keyword</td>
+</tr>
+
+<tr>
+<td><code>int age = 18;</code></td>
+<td>  <code>const int DAYS = 7;</code></td>
+</tr>
+
+<tr>
+<td>Reassignment is allowed</td>
+<td>  Reassignment is not allowed</td>
+</tr>
+</table>
+
+<h2 id="complete-example">Complete Example</h2>
+
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main() {
+
+    string name = "Faris";
+    int age = 18;
+    int semester = 2;
+    double cgpa = 3.84;
+    char grade = 'A';
+    bool passed = true;
+    const int MAX_MARKS = 100;
+
+    cout &lt;&lt; "Name: " &lt;&lt; name &lt;&lt; endl;
+    cout &lt;&lt; "Age: " &lt;&lt; age &lt;&lt; endl;
+    cout &lt;&lt; "Semester: " &lt;&lt; semester &lt;&lt; endl;
+    cout &lt;&lt; "CGPA: " &lt;&lt; cgpa &lt;&lt; endl;
+    cout &lt;&lt; "Grade: " &lt;&lt; grade &lt;&lt; endl;
+    cout &lt;&lt; "Passed: " &lt;&lt; boolalpha &lt;&lt; passed &lt;&lt; endl;
+    cout &lt;&lt; "Maximum Marks: " &lt;&lt; MAX_MARKS &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+
+<h2 id="common-mistakes">Common Beginner Mistakes</h2>
+
+<h3>Wrong Data Type</h3>
+
+<pre><code>int price = 99.99;</code></pre>
+
+<p>
+If you need to store a decimal value, use an appropriate floating-point type such as <code>double</code>.
+</p>
+
+<pre><code>double price = 99.99;</code></pre>
+
+<h3>Using Double Quotes with char</h3>
+
+<pre><code>char grade = "A"; // Incorrect
+char grade = 'A'; // Correct</code></pre>
+
+<h3>Using Single Quotes with string</h3>
+
+<pre><code>string name = 'Faris'; // Incorrect
+string name = "Faris"; // Correct</code></pre>
+
+<h3>Changing a Constant</h3>
+
+<pre><code>const int DAYS = 7;
+DAYS = 8; // Error</code></pre>
+
+<h2 id="quick-revision">Quick Revision</h2>
+
+<div class="notes-box">
+
+<strong>Variable:</strong> A named storage location whose value can change.
+
+<br><br>
+
+<strong>Data Type:</strong> Defines what kind of data a variable stores.
+
+<br><br>
+
+<strong>Declaration:</strong> Creating a variable without necessarily giving it a value.
+
+<br><br>
+
+<strong>Initialization:</strong> Giving a variable its first value.
+
+<br><br>
+
+<strong>Assignment:</strong> Giving or changing the value of an existing variable.
+
+<br><br>
+
+<strong>Constant:</strong> A value that cannot be modified after initialization.
+
+<br><br>
+
+<strong>const:</strong> Keyword used to create a non-modifiable object/variable.
+
+</div>
+
+<!-- INTERACTIVE MCQs -->
+
+<h2 id="quiz">Test Your Knowledge</h2>
+
+<p>
+Choose an answer for each question. You will immediately see whether your answer is correct.
+</p>
+
+<div class="quiz-container">
+
+<div class="quiz-question" data-answer="B">
+
+<h3>Question 1</h3>
+
+<p>In <code>int age = 18;</code>, what is <code>age</code>?</p>
+
+<button class="quiz-option">A. Data type</button>
+<button class="quiz-option">B. Variable name</button>
+<button class="quiz-option">C. Value</button>
+<button class="quiz-option">D. Operator</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="C">
+
+<h3>Question 2</h3>
+
+<p>In <code>double price = 99.99;</code>, what is <code>99.99</code>?</p>
+
+<button class="quiz-option">A. Variable</button>
+<button class="quiz-option">B. Data type</button>
+<button class="quiz-option">C. Value</button>
+<button class="quiz-option">D. Keyword</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="C">
+
+<h3>Question 3</h3>
+
+<p>Which keyword is used to create a constant in C++?</p>
+
+<button class="quiz-option">A. fixed</button>
+<button class="quiz-option">B. constant</button>
+<button class="quiz-option">C. const</button>
+<button class="quiz-option">D. immutable</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="B">
+
+<h3>Question 4</h3>
+
+<p>Which data type is used to store a single character?</p>
+
+<button class="quiz-option">A. string</button>
+<button class="quiz-option">B. char</button>
+<button class="quiz-option">C. character</button>
+<button class="quiz-option">D. text</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="D">
+
+<h3>Question 5</h3>
+
+<p>Which of the following is a valid variable declaration?</p>
+
+<button class="quiz-option">A. int 2age = 18;</button>
+<button class="quiz-option">B. int student age = 18;</button>
+<button class="quiz-option">C. int class = 18;</button>
+<button class="quiz-option">D. int studentAge = 18;</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="A">
+
+<h3>Question 6</h3>
+
+<p>Which operator is used for assignment?</p>
+
+<button class="quiz-option">A. =</button>
+<button class="quiz-option">B. ==</button>
+<button class="quiz-option">C. !=</button>
+<button class="quiz-option">D. &gt;=</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="C">
+
+<h3>Question 7</h3>
+
+<p>Which declaration correctly creates a character variable?</p>
+
+<button class="quiz-option">A. char grade = "A";</button>
+<button class="quiz-option">B. char grade = A;</button>
+<button class="quiz-option">C. char grade = 'A';</button>
+<button class="quiz-option">D. char grade = `A`;</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="B">
+
+<h3>Question 8</h3>
+
+<p>What happens when you try to change a const variable?</p>
+
+<button class="quiz-option">A. The value automatically changes</button>
+<button class="quiz-option">B. The compiler reports an error</button>
+<button class="quiz-option">C. The program ignores the statement</button>
+<button class="quiz-option">D. The variable becomes normal</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="A">
+
+<h3>Question 9</h3>
+
+<p>Which data type is commonly used for true or false values?</p>
+
+<button class="quiz-option">A. bool</button>
+<button class="quiz-option">B. logic</button>
+<button class="quiz-option">C. binary</button>
+<button class="quiz-option">D. bit</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="D">
+
+<h3>Question 10</h3>
+
+<p>What is the correct way to store text in a string?</p>
+
+<button class="quiz-option">A. string name = 'Ali';</button>
+<button class="quiz-option">B. string name = Ali;</button>
+<button class="quiz-option">C. string name = `Ali`;</button>
+<button class="quiz-option">D. string name = "Ali";</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+</div>
+
+<div class="notes-box">
+<strong>Challenge:</strong> Try to create your own program using at least one <code>int</code>, one <code>double</code>, one <code>char</code>, one <code>bool</code>, one <code>string</code>, and one <code>const</code> variable.
+</div>
+
+<div class="pager">
+<a class="prev" href="../cup-aur-c/hello-world.html">
+<span class="label">Previous</span>
+<span class="title">&larr; First Program in C++</span>
+</a>
+
+<a class="next" href="../cup-aur-c/data-types.html">
+<span class="label">Next</span>
+<span class="title">Data Types &rarr;</span>
+</a>
+</div>
+
+<div class="page-footer">
+<div class="credit">Notes maintained by: <strong>Faris Khan</strong></div>
+<div class="credit">Modification Date: <strong>August 16, 2026</strong></div>
+</div>
+
+</main>
+
+  <aside class="toc">
+    <div class="toc-title">On this page</div>
+    <ul>
+      <li><a href="#_top" class="active">Overview</a></li>
+<li><a href="#declaring-variables">Declaring variables</a></li>
+    </ul>
+  </aside>
+</div>
+
+<script src="../assets/js/starfield.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

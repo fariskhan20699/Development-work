@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Types | My Dev Notes</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="../index.html" class="brand">
+    <span class="mark">&#9729;</span>
+    My Dev Notes
+  </a>
+  <div class="search-box">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <span>Search</span>
+    <span class="kbd"><kbd>Ctrl</kbd><kbd>K</kbd></span>
+  </div>
+  <div class="header-icons">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="backdrop" id="backdrop"></div>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="top-link" href="../index.html">Getting Started</a>
+<nav>
+<div class="nav-group">
+<div class="nav-group-title">Cup aur HTML</div>
+<ul>
+<li><a href="../cup-aur-html/welcome.html">Welcome</a></li>
+<li><a href="../cup-aur-html/introduction.html">HTML Intro</a></li>
+<li><a href="../cup-aur-html/emmit-crash-course.html">Emmet Crash Course</a></li>
+<li><a href="../cup-aur-html/html-tags.html">Common HTML Tags</a></li>
+</ul>
+</div>
+<div class="nav-group">
+<div class="nav-group-title">Cup aur Git</div>
+<ul>
+<li><a href="../cup-aur-git/welcome.html">Welcome</a></li>
+<li><a href="../cup-aur-git/introduction.html">Git and GitHub</a></li>
+<li><a href="../cup-aur-git/terminology.html">Terminology</a></li>
+<li><a href="../cup-aur-git/behind-the-scenes.html">Behind the scenes</a></li>
+<li><a href="../cup-aur-git/branches.html">Branches in Git</a></li>
+<li><a href="../cup-aur-git/diff-stash-tags.html">Diff, Stash, Tags</a></li>
+<li><a href="../cup-aur-git/managing-history.html">Managing History</a></li>
+<li><a href="../cup-aur-git/github.html">Collaborate with Github</a></li>
+</ul>
+</div>
+<div class="nav-group">
+<div class="nav-group-title">Cup aur C++</div>
+<ul>
+<li><a href="../cup-aur-c/welcome.html">Welcome</a></li>
+<li><a href="../cup-aur-c/introduction.html">C++ Intro</a></li>
+<li><a href="../cup-aur-c/hello-world.html">First Program in C++</a></li>
+<li><a href="../cup-aur-c/variables-and-constants.html">Variables & Constants</a></li>
+<li><a href="../cup-aur-c/data-types.html" class="active">Data Types</a></li>
+<li><a href="../cup-aur-c/operators.html">Operators</a></li>
+<li><a href="../cup-aur-c/control-flow.html">Control Flow</a></li>
+<li><a href="../cup-aur-c/loops.html">Loops</a></li>
+<li><a href="../cup-aur-c/functions.html">Functions</a></li>
+</ul>
+</div>
+<div class="nav-group">
+<div class="nav-group-title">Cup aur Django</div>
+<ul>
+<li><a href="../cup-aur-django/welcome.html">Welcome</a></li>
+<li><a href="../cup-aur-django/getting-started.html">Django Intro</a></li>
+<li><a href="../cup-aur-django/jinja-templates.html">Jinja Templates App</a></li>
+<li><a href="../cup-aur-django/tailwind.html">Tailwind Integration</a></li>
+<li><a href="../cup-aur-django/models.html">Models</a></li>
+<li><a href="../cup-aur-django/relationships-and-forms.html">Relationships & Forms</a></li>
+</ul>
+</div>
+<div class="nav-group">
+<div class="nav-group-title">Cup aur SQL</div>
+<ul>
+<li><a href="../cup-aur-sql/welcome.html">Welcome</a></li>
+<li><a href="../cup-aur-sql/introduction.html">SQL Intro</a></li>
+<li><a href="../cup-aur-sql/postgres.html">PostgreSQL</a></li>
+<li><a href="../cup-aur-sql/normalization.html">Database Design</a></li>
+<li><a href="../cup-aur-sql/database-design-exercise.html">Exercise - DB Design</a></li>
+<li><a href="../cup-aur-sql/joins-and-keys.html">SQL Joins and Keys</a></li>
+<li><a href="../cup-aur-sql/joins-exercise.html">Exercise - Joins</a></li>
+</ul>
+</div>
+<div class="nav-group">
+<div class="nav-group-title">Cup aur DevOps</div>
+<ul>
+<li><a href="../cup-aur-devops/welcome.html">Welcome</a></li>
+<li><a href="../cup-aur-devops/setup-vpc.html">Server Startup</a></li>
+<li><a href="../cup-aur-devops/setup-nginx.html">Nginx Configuration</a></li>
+<li><a href="../cup-aur-devops/nginx-rate-limiting.html">Nginx Rate Limit</a></li>
+<li><a href="../cup-aur-devops/nginx-ssl-setup.html">Nginx SSL Setup</a></li>
+<li><a href="../cup-aur-devops/node-nginx-vps.html">Deploy Node API</a></li>
+<li><a href="../cup-aur-devops/postgresql-docker.html">PostgreSQL & Docker</a></li>
+<li><a href="../cup-aur-devops/postgresql-vps.html">PostgreSQL on VPS</a></li>
+<li><a href="../cup-aur-devops/node-logger.html">Advance Node Logger</a></li>
+</ul>
+</div>
+</nav>
+  </aside>
+
+<main class="content">
+
+<div class="badge-live"><span class="dot"></span>Cup aur C++</div>
+
+<h1 class="page-title" id="_top">Data Types</h1>
+
+<p class="lede">
+A data type tells C++ what kind of data a variable can store and how that data should be handled by the program.
+</p>
+
+<h2 id="what-is-data-type">What is a Data Type?</h2>
+
+<p>
+A data type specifies the type of value that a variable can store. In C++, every variable has a data type.
+The data type helps the compiler understand whether a variable should contain a whole number, decimal number,
+character, true or false value, or another type of data.
+</p>
+
+<p>
+For example, an age is normally stored as a whole number, while a CGPA can contain a decimal value.
+Therefore, we can use different data types for different kinds of information.
+</p>
+
+<pre><code>int age = 18;
+double cgpa = 3.84;</code></pre>
+
+<p>
+In the example above, <code>int</code> is used for the whole number and <code>double</code> is used for the decimal value.
+</p>
+
+
+<h2 id="why-data-types">Why Are Data Types Important?</h2>
+
+<p>
+Data types are important because they tell the compiler what kind of value a variable is expected to store.
+They also affect how much memory is required and which operations can be performed on the value.
+</p>
+
+<p>
+Choosing the appropriate data type makes your programs easier to understand and helps you work with data correctly.
+</p>
+
+<pre><code>int students = 50;
+double price = 99.99;
+char grade = 'A';
+bool passed = true;</code></pre>
+
+
+<h2 id="common-data-types">Common C++ Data Types</h2>
+
+<p>
+C++ provides several built-in data types for storing different kinds of values.
+The most common types beginners should learn first are:
+</p>
+
+<table>
+<tr>
+<th>Data Type</th>
+<th>Used For</th>
+<th>Example</th>
+</tr>
+
+<tr>
+<td><code>int</code></td>
+<td>Whole numbers</td>
+<td><code>int age = 18;</code></td>
+</tr>
+
+<tr>
+<td><code>float</code></td>
+<td>Decimal numbers</td>
+<td><code>float price = 10.5f;</code></td>
+</tr>
+
+<tr>
+<td><code>double</code></td>
+<td>Decimal numbers<br>
+with higher precision<br>than float
+</td>
+<td><code>double cgpa = 3.84;</code></td>
+</tr>
+
+<tr>
+<td><code>char</code></td>
+<td>A single character</td>
+<td><code>char grade = 'A';</code></td>
+</tr>
+
+<tr>
+<td><code>bool</code></td>
+<td>True or false values</td>
+<td><code>bool passed = true;</code></td>
+</tr>
+
+<tr>
+<td><code>void</code></td>
+<td>Represents no value</td>
+<td><code>void show();</code></td>
+</tr>
+
+<tr>
+<td><code>string</code></td>
+<td>Text</td>
+<td><code>string name = "Ali";</code></td>
+</tr>
+</table>
+
+
+<h2 id="int">1. int</h2>
+
+<p>
+The <code>int</code> data type is used to store whole numbers, also called integers.
+It can store positive numbers, negative numbers, and zero.
+</p>
+
+<pre><code>int age = 18;
+int marks = 85;
+int temperature = -5;
+int students = 40;</code></pre>
+
+<p>
+Examples of values that can be stored in an <code>int</code> variable include:
+</p>
+
+<pre><code>100
+0
+-25
+5000</code></pre>
+
+<p>
+An <code>int</code> should not be used when you need to preserve a fractional decimal value.
+</p>
+
+
+<h2 id="float">2. float</h2>
+
+<p>
+The <code>float</code> data type is used to store floating-point numbers, which are numbers that can contain decimal values.
+</p>
+
+<pre><code>float temperature = 36.5f;
+float price = 99.5f;
+float height = 5.9f;</code></pre>
+
+<p>
+Notice the <code>f</code> at the end of the values.
+It tells C++ that the numeric literal should be treated as a <code>float</code>.
+</p>
+
+<pre><code>float percentage = 85.5f;</code></pre>
+
+
+<h2 id="double">3. double</h2>
+
+<p>
+The <code>double</code> data type is also used for decimal numbers.
+It generally provides more precision than <code>float</code>.
+</p>
+
+<pre><code>double pi = 3.1415926535;
+double cgpa = 3.84;
+double price = 1499.99;</code></pre>
+
+<p>
+For many programs involving decimal values, <code>double</code> is a practical default when you need more precision than a <code>float</code> provides.
+</p>
+
+
+<h2 id="char">4. char</h2>
+
+<p>
+The <code>char</code> data type is used to store a single character.
+A character is written inside single quotation marks.
+</p>
+
+<pre><code>char grade = 'A';
+char symbol = '#';
+char firstLetter = 'F';</code></pre>
+
+<p>
+A <code>char</code> stores one character, not a complete word or sentence.
+</p>
+
+<pre><code>char grade = 'A';     // Correct
+char grade = "A";     // Incorrect</code></pre>
+
+<p>
+Remember:
+</p>
+
+<pre><code>'A'       → Character
+"A"       → String</code></pre>
+
+
+<h2 id="bool">5. bool</h2>
+
+<p>
+The <code>bool</code> data type is used to store logical values.
+A Boolean variable can have one of two values:
+</p>
+
+<pre><code>true
+false</code></pre>
+
+<p>Example:</p>
+
+<pre><code>bool passed = true;
+bool failed = false;
+bool isLoggedIn = true;</code></pre>
+
+<p>
+Boolean values are commonly used when making decisions in a program.
+You will use them frequently with conditions such as <code>if</code> statements.
+</p>
+
+
+<h2 id="void">6. void</h2>
+
+<p>
+The <code>void</code> type represents the absence of a value.
+It is commonly used with functions that do not return a value.
+</p>
+
+<pre><code>void showMessage() {
+    cout &lt;&lt; "Hello";
+}</code></pre>
+
+<p>
+The function above performs an action but does not return a value.
+You will learn more about <code>void</code> when studying functions.
+</p>
+
+
+<h2 id="string">7. string</h2>
+
+<p>
+A string is used to store text, such as a name, sentence, or message.
+In C++, <code>std::string</code> is a standard library type rather than a fundamental built-in type like <code>int</code> or <code>char</code>.
+</p>
+
+<pre><code>#include &lt;string&gt;
+
+string name = "Faris";
+string university = "Iqra University";</code></pre>
+
+<p>
+Strings use double quotation marks.
+</p>
+
+<pre><code>string name = "Faris";</code></pre>
+
+<p>
+A string can contain multiple characters, while a <code>char</code> normally stores a single character.
+</p>
+
+<pre><code>char letter = 'F';
+string name = "Faris";</code></pre>
+
+
+<h2 id="char-vs-string">char vs string</h2>
+
+<table>
+<tr>
+<th>char</th>
+<th>string</th>
+</tr>
+
+<tr>
+<td>Stores a single character</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stores text or multiple characters</td>
+</tr>
+
+<tr>
+<td>Uses single quotes</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uses double quotes</td>
+</tr>
+
+<tr>
+<td><code>'A'</code></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>"Ali"</code></td>
+</tr>
+</table>
+
+
+<h2 id="float-vs-double">float vs double</h2>
+
+<p>
+Both <code>float</code> and <code>double</code> can store decimal numbers.
+The main difference is their precision and typical storage size.
+</p>
+
+<table>
+<tr>
+<th>Feature</th>
+<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float</th>
+<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double</th>
+</tr>
+
+<tr>
+<td>Decimal values</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</td>
+</tr>
+
+<tr>
+<td>Precision</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lower</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Higher</td>
+</tr>
+
+<tr>
+<td>Typical size</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 bytes</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8 bytes</td>
+</tr>
+
+<tr>
+<td>Example</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>3.14f</code></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>3.1415926535</code></td>
+</tr>
+</table>
+
+<div class="notes-box">
+<strong>Beginner Tip:</strong>
+When you need a decimal value and do not have a specific reason to use <code>float</code>,
+<code>double</code> is often the simpler choice.
+</div>
+
+
+<h2 id="size">Data Type Size</h2>
+
+<p>
+Different data types generally require different amounts of memory.
+You can use the <code>sizeof</code> operator to find the size of a type or variable in bytes.
+</p>
+
+<pre><code>cout << "Int = " << sizeof(int) << endl;
+cout << "Double = " << sizeof(double) << endl;
+cout << "Char = " << sizeof(char) << endl;
+cout << "Bool = " << sizeof(bool) << endl;
+cout << "Float = " << sizeof(float) << endl;
+</code></pre>
+
+<p>
+The exact size of some C++ types can depend on the compiler and platform, so you should not assume that every type always has the same size on every system.
+</p>
+
+<p>
+For example, <code>char</code> is guaranteed to occupy one byte, while the sizes of types such as <code>int</code>, <code>long</code>, and <code>double</code> can vary by implementation.
+</p>
+<h3>Output</h3>
+<pre><code>Int = 4
+Double = 8
+char= 1
+Bool = 1
+Float = 4
+</code></pre>  
+
+<h2 id="signed-unsigned">Signed and Unsigned Types</h2>
+
+<p>
+Integer types can be signed or unsigned.
+A signed integer can represent both positive and negative values, while an unsigned integer represents only non-negative values.
+</p>
+
+<pre><code>int temperature = -10;
+unsigned int students = 50;</code></pre>
+
+<p>
+An unsigned type can represent a larger range of non-negative values than the corresponding signed type of the same size.
+</p>
+
+<div class="notes-box">
+<strong>Important:</strong>
+Do not use unsigned types simply because they sound like they provide "more memory."
+They use the same amount of storage as their corresponding type; the difference is how the range of values is represented.
+</div>
+
+
+<h2 id="type-conversion">Type Conversion</h2>
+
+<p>
+Type conversion happens when a value is converted from one data type to another.
+C++ supports both implicit and explicit conversions.
+</p>
+
+<h3>Implicit Conversion</h3>
+
+<p>
+An implicit conversion happens automatically when C++ converts a value to another compatible type.
+</p>
+
+<pre><code>int number = 10;
+double result = number;</code></pre>
+
+<p>
+Here, the integer value <code>10</code> is converted to a <code>double</code>.
+</p>
+
+<h3>Explicit Conversion</h3>
+
+<p>
+An explicit conversion is when the programmer intentionally tells C++ to convert a value to another type.
+</p>
+
+<pre><code>double price = 99.99;
+int wholePrice = static_cast&lt;int&gt;(price);</code></pre>
+
+<p>
+The decimal part is discarded, so <code>wholePrice</code> becomes <code>99</code>.
+</p>
+
+<div class="notes-box">
+<strong>Warning:</strong>
+Converting between types can sometimes cause loss of information.
+For example, converting <code>99.99</code> from <code>double</code> to <code>int</code> removes the fractional part.
+</div>
+
+
+<h2 id="type-selection">How to Choose a Data Type</h2>
+
+<p>
+Choose a data type according to the kind of data your variable needs to store.
+</p>
+
+<table>
+<tr>
+<th>If you need to store...</th>
+<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use</th>
+</tr>
+
+<tr>
+<td>Whole numbers</td>
+<td><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int</code></td>
+</tr>
+
+<tr>
+<td>Decimal numbers</td>
+<td><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double</code></td>
+</tr>
+
+<tr>
+<td>A single character</td>
+<td><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char</code></td>
+</tr>
+
+<tr>
+<td>True or false</td>
+<td><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bool</code></td>
+</tr>
+
+<tr>
+<td>Text</td>
+<td><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</code></td>
+</tr>
+
+<tr>
+<td>No return value from a function</td>
+<td><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void</code></td>
+</tr>
+</table>
+
+
+<h2 id="complete-example">Complete Example</h2>
+
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main() {
+
+    int age = 18;
+    float height = 5.9f;
+    double cgpa = 3.84;
+    char grade = 'A';
+    bool passed = true;
+    string name = "Faris";
+
+    cout &lt;&lt; "Name: " &lt;&lt; name &lt;&lt; endl;
+    cout &lt;&lt; "Age: " &lt;&lt; age &lt;&lt; endl;
+    cout &lt;&lt; "Height: " &lt;&lt; height &lt;&lt; endl;
+    cout &lt;&lt; "CGPA: " &lt;&lt; cgpa &lt;&lt; endl;
+    cout &lt;&lt; "Grade: " &lt;&lt; grade &lt;&lt; endl;
+    cout &lt;&lt; "Passed: " &lt;&lt; boolalpha &lt;&lt; passed &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+
+<p>Output:</p>
+
+<pre><code>Name: Faris
+Age: 18
+Height: 5.9
+CGPA: 3.84
+Grade: A
+Passed: true</code></pre>
+
+
+<h2 id="common-mistakes">Common Beginner Mistakes</h2>
+
+<h3>1. Using int for a decimal value</h3>
+
+<pre><code>int cgpa = 3.84;</code></pre>
+
+<p>
+If you need to preserve the decimal value, use <code>double</code>.
+</p>
+
+<pre><code>double cgpa = 3.84;</code></pre>
+
+<h3>2. Confusing char and string</h3>
+
+<pre><code>char grade = "A";      // Incorrect
+char grade = 'A';      // Correct
+
+string name = 'Ali';   // Incorrect
+string name = "Ali";   // Correct</code></pre>
+
+<h3>3. Forgetting the f suffix for a float literal</h3>
+
+<pre><code>float price = 10.5f;</code></pre>
+
+<p>
+Using <code>f</code> makes the literal a <code>float</code>. Without it, a decimal literal such as <code>10.5</code> has type <code>double</code>.
+</p>
+
+<h3>4. Assuming every data type has the same size</h3>
+
+<p>
+The size of several C++ types is implementation-dependent.
+Use <code>sizeof()</code> when you need to know the actual size on your system.
+</p>
+
+
+<h2 id="quick-revision">Quick Revision</h2>
+
+<div class="notes-box">
+
+<strong>Data Type:</strong>
+Defines what kind of data a variable can store.
+
+<br><br>
+
+<strong>int:</strong>
+Used for whole numbers.
+
+<br><br>
+
+<strong>float:</strong>
+Used for decimal numbers with lower precision than double.
+
+<br><br>
+
+<strong>double:</strong>
+Used for decimal numbers with higher precision than float.
+
+<br><br>
+
+<strong>char:</strong>
+Used for a single character.
+
+<br><br>
+
+<strong>bool:</strong>
+Used for <code>true</code> or <code>false</code>.
+
+<br><br>
+
+<strong>string:</strong>
+Used for text.
+
+<br><br>
+
+<strong>void:</strong>
+Represents the absence of a value, commonly in functions.
+
+<br><br>
+
+<strong>sizeof:</strong>
+Used to determine the size of a type or object in bytes.
+
+</div>
+
+
+<h2 id="quiz">Test Your Knowledge</h2>
+
+<p>
+Choose an answer for each question. The correct answer will be shown immediately after you select an option.
+</p>
+
+<div class="quiz-container">
+
+<div class="quiz-question" data-answer="B">
+
+<h3>Question 1</h3>
+
+<p>Which data type is commonly used to store whole numbers?</p>
+
+<button class="quiz-option">A. double</button>
+<button class="quiz-option">B. int</button>
+<button class="quiz-option">C. char</button>
+<button class="quiz-option">D. bool</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="C">
+
+<h3>Question 2</h3>
+
+<p>Which data type is commonly used to store decimal numbers with higher precision than float?</p>
+
+<button class="quiz-option">A. int</button>
+<button class="quiz-option">B. char</button>
+<button class="quiz-option">C. double</button>
+<button class="quiz-option">D. bool</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="A">
+
+<h3>Question 3</h3>
+
+<p>Which data type is used to store a single character?</p>
+
+<button class="quiz-option">A. char</button>
+<button class="quiz-option">B. string</button>
+<button class="quiz-option">C. text</button>
+<button class="quiz-option">D. character</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="D">
+
+<h3>Question 4</h3>
+
+<p>Which data type is used to store true or false values?</p>
+
+<button class="quiz-option">A. int</button>
+<button class="quiz-option">B. char</button>
+<button class="quiz-option">C. double</button>
+<button class="quiz-option">D. bool</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="B">
+
+<h3>Question 5</h3>
+
+<p>Which is the correct declaration of a character?</p>
+
+<button class="quiz-option">A. char grade = "A";</button>
+<button class="quiz-option">B. char grade = 'A';</button>
+<button class="quiz-option">C. char grade = A;</button>
+<button class="quiz-option">D. char grade = `A`;</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="C">
+
+<h3>Question 6</h3>
+
+<p>Which type is commonly used to store text?</p>
+
+<button class="quiz-option">A. char</button>
+<button class="quiz-option">B. int</button>
+<button class="quiz-option">C. string</button>
+<button class="quiz-option">D. bool</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="A">
+
+<h3>Question 7</h3>
+
+<p>Which operator can be used to find the size of a data type or object?</p>
+
+<button class="quiz-option">A. sizeof</button>
+<button class="quiz-option">B. size</button>
+<button class="quiz-option">C. memory</button>
+<button class="quiz-option">D. length</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="D">
+
+<h3>Question 8</h3>
+
+<p>What is the typical size of a double on most modern systems?</p>
+
+<button class="quiz-option">A. 1 byte</button>
+<button class="quiz-option">B. 2 bytes</button>
+<button class="quiz-option">C. 4 bytes</button>
+<button class="quiz-option">D. 8 bytes</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="B">
+
+<h3>Question 9</h3>
+
+<p>What happens when a double value such as 99.99 is converted to int?</p>
+
+<button class="quiz-option">A. It becomes 100</button>
+<button class="quiz-option">B. The fractional part is discarded</button>
+<button class="quiz-option">C. It becomes a string</button>
+<button class="quiz-option">D. The program always crashes</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+<div class="quiz-question" data-answer="C">
+
+<h3>Question 10</h3>
+
+<p>Which data type represents the absence of a value?</p>
+
+<button class="quiz-option">A. null</button>
+<button class="quiz-option">B. empty</button>
+<button class="quiz-option">C. void</button>
+<button class="quiz-option">D. none</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+</div>
+
+
+<div class="notes-box">
+<strong>Practice:</strong>
+Create a C++ program that declares an <code>int</code>, <code>float</code>,
+<code>double</code>, <code>char</code>, <code>bool</code>, and <code>string</code>.
+Print the value of each variable using <code>cout</code>.
+</div>
+
+
+<div class="pager">
+
+<a class="prev" href="../cup-aur-c/variables-and-constants.html">
+<span class="label">Previous</span>
+<span class="title">&larr; Variables & Constants</span>
+</a>
+
+<a class="next" href="../cup-aur-c/operators.html">
+<span class="label">Next</span>
+<span class="title">Operators &rarr;</span>
+</a>
+
+</div>
+
+
+<div class="page-footer">
+
+<div class="credit">
+Notes maintained by: <strong>Faris Khan</strong>
+</div>
+
+<div class="credit">
+Modification Date: <strong>August 16, 2026</strong>
+</div>
+
+</div>
+
+</main>
+
+  <aside class="toc">
+    <div class="toc-title">On this page</div>
+    <ul>
+      <li><a href="#_top" class="active">Overview</a></li>
+<li><a href="#common-built-in-types">Common built-in types</a></li>
+    </ul>
+  </aside>
+</div>
+
+<script src="../assets/js/starfield.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
